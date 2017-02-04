@@ -1,33 +1,31 @@
 import { h } from 'snabbdom/h'
-import { head, take, omit } from 'ramda'
 
-function isValidString(param) {
-  return typeof param === 'string' && param.length > 0
-}
+const isValidString = (param) =>
+  typeof param === 'string' && param.length > 0
 
-function isSelector(param) {
-  return isValidString(param) && (param[0] === '.' || param[0] === '#')
-}
 
-function createTag(tagName) {
-  return function helper(selector, b, c) {
-    if (isSelector(selector)) {
-      if (typeof b !== 'undefined' && typeof c !== 'undefined') {
-        return h(tagName + selector, b, c)
-      } else if (typeof b !== 'undefined') {
-        return h(tagName + selector, b)
-      } else {
-        return h(tagName + selector, {})
-      }
-    } else if (!!b) {
-      return h(tagName, selector, b)
-    } else if (!!selector) {
-      return h(tagName, selector)
+const isSelector = (param) =>
+  isValidString(param) && (param[0] === '.' || param[0] === '#')
+
+
+const createTag = (tagName) => (selector, b, c) => {
+  if (isSelector(selector)) {
+    if (typeof b !== 'undefined' && typeof c !== 'undefined') {
+      return h(tagName + selector, b, c)
+    } else if (typeof b !== 'undefined') {
+      return h(tagName + selector, b)
     } else {
-      return h(tagName, {})
+      return h(tagName + selector, {})
     }
+  } else if (!!b) {
+    return h(tagName, selector, b)
+  } else if (!!selector) {
+    return h(tagName, selector)
+  } else {
+    return h(tagName, {})
   }
 }
+
 
 const TAG_NAMES = [
   'a', 'abbr', 'address', 'area', 'article', 'aside', 'audio', 'b', 'base',

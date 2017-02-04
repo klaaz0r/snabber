@@ -1,6 +1,5 @@
 import { h1, div, span, a } from './index'
 import toHTML from 'snabbdom-to-html'
-import h from 'snabbdom/h'
 import { expect } from 'chai'
 
 describe('test snabbdom helpers', function() {
