@@ -26,6 +26,26 @@ const createTag = (tagName) => (selector, b, c) => {
   }
 }
 
+const SVG_TAG_NAMES = [
+  'a', 'altGlyph', 'altGlyphDef', 'altGlyphItem', 'animate', 'animateColor',
+  'animateMotion', 'animateTransform', 'circle', 'clipPath', 'colorProfile',
+  'cursor', 'defs', 'desc', 'ellipse', 'feBlend', 'feColorMatrix',
+  'feComponentTransfer', 'feComposite', 'feConvolveMatrix', 'feDiffuseLighting',
+  'feDisplacementMap', 'feDistantLight', 'feFlood', 'feFuncA', 'feFuncB',
+  'feFuncG', 'feFuncR', 'feGaussianBlur', 'feImage', 'feMerge', 'feMergeNode',
+  'feMorphology', 'feOffset', 'fePointLight', 'feSpecularLighting',
+  'feSpotlight', 'feTile', 'feTurbulence', 'filter', 'font', 'fontFace',
+  'fontFaceFormat', 'fontFaceName', 'fontFaceSrc', 'fontFaceUri',
+  'foreignObject', 'g', 'glyph', 'glyphRef', 'hkern', 'image', 'line',
+  'linearGradient', 'marker', 'mask', 'metadata', 'missingGlyph', 'mpath',
+  'path', 'pattern', 'polygon', 'polyline', 'radialGradient', 'rect', 'script',
+  'set', 'stop', 'style', 'switch', 'symbol', 'text', 'textPath', 'title',
+  'tref', 'tspan', 'use', 'view', 'vkern',
+]
+
+const svg = createTag('svg')
+
+SVG_TAG_NAMES.forEach(tag => { svg[tag] = createTag(tag) })
 
 const TAG_NAMES = [
   'a', 'abbr', 'address', 'area', 'article', 'aside', 'audio', 'b', 'base',
@@ -41,7 +61,7 @@ const TAG_NAMES = [
   'textarea', 'tfoot', 'th', 'thead', 'title', 'tr', 'u', 'ul', 'video',
 ]
 
-const exported = { TAG_NAMES, createTag }
+const exported = { SVG_TAG_NAMES, TAG_NAMES, svg, isSelector, createTag }
 
 TAG_NAMES.forEach(n => { exported[n] = createTag(n) })
 

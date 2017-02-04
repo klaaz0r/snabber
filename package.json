@@ -1,7 +1,7 @@
 {
   "name": "snabber",
-  "version": "0.0.0",
-  "description": "start a node module",
+  "version": "0.0.1",
+  "description": "simple snabbdom helpers",
   "main": "dist/index.js",
   "scripts": {
     "prebuild": "rm -rf dist && mkdir dist",
@@ -45,7 +45,7 @@
   },
   "config": {
     "ghooks": {
-      "pre-commit": "npm run test:single && npm run check-coverage"
+      "pre-commit": "npm run test:single"
     }
   }
 }
