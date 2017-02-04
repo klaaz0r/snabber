@@ -1,6 +1,6 @@
 {
   "name": "snabber",
-  "version": "0.0.1",
+  "version": "0.0.3",
   "description": "simple snabbdom helpers",
   "main": "dist/index.js",
   "scripts": {
@@ -12,12 +12,11 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/kentcdodds/starwars-names.git"
+    "url": "https://github.com/klaaz0r/snabber"
   },
   "keywords": [
-    "random",
-    "star",
-    "wars"
+    "snabbdom",
+    "helpers"
   ],
   "author": "klaaz0r",
   "license": "MIT",
