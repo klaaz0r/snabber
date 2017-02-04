@@ -11,3 +11,18 @@ you can do this
 ```javascript
 div({ style: { color: 'red' } }, 'The quick brown fox jumps')
 ```
+
+## instalation
+```
+npm install snabber 
+```
+
+ussage
+
+``` javascript
+import { div } from 'snabber'
+import toHTML from 'snabbdom-to-html'
+
+const node = div('.box', 'Hello world!')
+toHTML(node)  // ->  <div class="box">Hello world!</div>
+```
